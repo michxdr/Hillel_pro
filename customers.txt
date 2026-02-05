@@ -1,0 +1,4 @@
+ім'я|email
+Олена|olena@example.com
+Іван|ivan@example.com
+Марія|maria@example.com
