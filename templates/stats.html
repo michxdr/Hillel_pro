@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Статистика</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Статистика</h1>
+
+    <div class="stats-box">
+        <p>Всього завдань: <strong>{{ total }}</strong></p>
+        <p>Виконано: <strong>{{ done }}</strong></p>
+        <p>Залишилось: <strong>{{ total - done }}</strong></p>
+    </div>
+
+    <a class="stats-link" href="{{ url_for('home') }}">⬅ Назад</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Мої завдання</h1>
+
+    <a class="add-link" href="{{ url_for('add_page') }}">Додати завдання</a>
+
+    <ul class="todo-list">
+        {% for todo in todo_list %}
+            <li class="todo-item">
+                <form action="{{ url_for('update_task', id=todo.id) }}" method="post">
+                    <button class="check-btn" type="submit">
+                        {% if todo.done %}✓{% else %}○{% endif %}
+                    </button>
+                </form>
+
+                <span class="todo-title {% if todo.done %}done{% endif %}">
+                    {{ todo.title }}
+                </span>
+
+                <form action="{{ url_for('delete_task', id=todo.id) }}" method="post">
+                    <button class="delete-btn" type="submit">✕</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a class="stats-link" href="{{ url_for('stats') }}">Статистика</a>
+</div>
+
+</body>
+</html>
